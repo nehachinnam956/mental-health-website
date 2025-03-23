@@ -1,0 +1,640 @@
+/* 🌿 General Styles */
+#home {
+    background: linear-gradient(to bottom, #e0f7fa, #ffffff); /* Calming gradient */
+    color: #ffffff; /* Text color to contrast with background */
+    padding: 50px 0;
+    height: 100vh; /* Full height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-attachment: fixed; /* Keeps background fixed during scroll */
+}
+
+#home .container {
+    text-align: center;
+}
+#home {
+    background: url('https://i.pinimg.com/736x/93/e1/7d/93e17df5abb3c5de7f89d8edd026bc5c.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff; /* Ensuring the text remains readable on the image */
+    padding: 50px 0;
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.8;
+    background: linear-gradient(to right, #f0f0f0, #e6f7ff);
+}
+
+/* 🎯 Navbar */
+.navbar {
+    background: rgba(44, 62, 80, 0.7);
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #a8edea;
+}
+
+/* 🌌 Header Section */
+header {
+    height: 100vh;
+    background: linear-gradient(to bottom right, #a8edea, #fed6e3);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    animation: fadeIn 1.5s;
+}
+
+header h1 {
+    font-size: 4rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header p {
+    font-size: 1.8rem;
+    margin: 20px 0;
+    opacity: 0.9;
+}
+
+/* 🍃 Button Styling */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background: #74ebd5;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+/* Style for Real Stories Section */
+#stories {
+    background: linear-gradient(135deg, #f5f5f5, #e0f7fa);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* Header Styling */
+.story-heading {
+    color: #0a0a0b; /* Dark color for the heading */
+    font-size: 2.5rem; /* Increased font size for better visibility */
+    font-weight: bold;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ddd; /* Subtle line below the heading */
+    text-transform: none; /* Removed text-transform to keep it in normal case */
+}
+
+/* Card Styling */
+.story-card {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.25rem; /* Slightly larger title text */
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Optional: Add some padding and margin for cards */
+.row {
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .story-heading {
+        font-size: 2rem; /* Smaller heading on mobile devices */
+    }
+}
+
+/* Mental Health Check-In Section */
+#checkin {
+    background: linear-gradient(135deg, #f5f5f5, #e0f7fa);
+    padding: 80px 0;
+    color: #333;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Section Heading */
+#checkin h2 {
+    font-size: 2.5rem;
+    color: #0a0a0b;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px #aaa;
+}
+
+/* Card Styling */
+.checkin-card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+/* Card Hover Effect */
+.checkin-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Title */
+.checkin-card .card-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #0a0a0b;
+    margin-bottom: 20px;
+}
+
+/* Mood Buttons */
+.mood-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.mood-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Mood Colors */
+.mood-happy { background: #28a745; }
+.mood-calm { background: #17a2b8; }
+.mood-sad { background: #6c757d; }
+.mood-anxious { background: #ffc107; }
+.mood-stressed { background: #dc3545; }
+
+.mood-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* Selected Mood */
+.selected-mood {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #007bff;
+}
+
+/* Mood Tips */
+#checkin .tips-content {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    padding: 15px;
+    background: #f8f9fa;
+    border-left: 5px solid #007bff;
+    border-radius: 8px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .mood-btn {
+        min-width: 100%;
+    }
+    #checkin h2 {
+        font-size: 2rem;
+    }
+}
+
+
+/* 💡 Resource Section */
+#resources {
+    background: linear-gradient(to bottom, #fef6e4, #e6f7ff);
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.resource-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.resource-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s, box-shadow 0.4s;
+    max-width: 350px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.resource-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+.resource-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.resource-card .card-body {
+    padding: 25px;
+}
+
+.resource-card h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.resource-card p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.resource-card a {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #27ae60;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.resource-card a:hover {
+    color: #2c3e50;
+}
+
+/* 💫 Results Section */
+#result {
+    background: #27ae60;
+    color: #fff;
+    padding: 30px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s;
+}
+
+/* 🌿 Story Section */
+.card {
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    transition: transform 0.4s, box-shadow 0.4s;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-body h5 {
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+.card-body p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* 🌟 Scroll to Top */
+#scrollToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #27ae60;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 22px;
+    display: none;
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+#scrollToTop:hover {
+    background: #2c3e50;
+}
+
+/* 🌿 Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 3rem;
+    }
+
+    .tip-card, .card, .resource-card {
+        width: 100%;
+    }
+}
+/* 🕊️ Contact Us Section */
+/* Contact Section */
+#contact {
+    background: linear-gradient(to bottom, #fef6e4, #e6f7ff)
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* Section Heading */
+#contact h2 {
+    font-size: 2.5rem;
+    color: #0a0a0b;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+/* Input Field Grouping */
+.input-group {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Fields */
+.form-control {
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+.form-control:focus {
+    border-color: #0a0a0b;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Textarea */
+textarea.form-control {
+    height: 150px;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #0a0a0b;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #333;
+}
+
+/* Form Container */
+.form-container {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Add a margin-bottom to form elements */
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #contact h2 {
+        font-size: 2rem;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .form-control {
+        font-size: 0.95rem;
+    }
+
+    .btn-primary {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+#quiz {
+    background: linear-gradient(to right, #fef6e4, #e6f7ff);
+    color: #333;
+}
+
+#quiz h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #0a0a0b;
+}
+
+#quiz form {
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#quiz .question {
+    margin-bottom: 20px;
+}
+
+#quiz .question h5 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#quiz .question label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#quiz .question input[type="radio"] {
+    margin-right: 10px;
+}
+
+#quiz .btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.25rem;
+}
+
+#quiz .result {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 20px;
+}
+
+/* 🌿 Mental Health Tips Section */
+/* Tips Section Styling */
+#tips {
+    background: linear-gradient(135deg, #f0f8ff, #e6f7ff); 
+    padding: 80px 0;
+    color: #333;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Section Heading */
+#tips h2 {
+    font-size: 2.5rem;
+    color: #0a0a0b;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px #aaa;
+}
+
+/* Card Styling */
+#tips .card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+/* Card Hover Effect */
+#tips .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Image */
+#tips .card-img-top {
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 3px solid #007bff;
+    transition: transform 0.3s ease-in-out;
+}
+
+#tips .card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* Card Body */
+#tips .card-body {
+    padding: 25px;
+}
+
+/* Card Title */
+#tips .card-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #0056b3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Card Text */
+#tips .card-text {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Benefits Paragraph */
+#tips .card-body p strong {
+    color: #28a745;
+    font-weight: 600;
+}
+
+/* Hover Effect for Benefits */
+#tips .card-body p strong:hover {
+    color: #0c0c0c;
+    transition: color 0.3s;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    #tips .card {
+        margin-bottom: 30px;
+    }
+    #tips h2 {
+        font-size: 2rem;
+    }
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare - Mental Health</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-brain"></i> MindCare</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- Home Link -->
+                <li class="nav-item"><a class="nav-link" href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <!-- How are you right now Link -->
+                <li class="nav-item"><a class="nav-link" href="#checkin"><i class="fas fa-clipboard-list"></i> How are you right now?</a></li>
+                <!-- Quiz Link -->
+                <li class="nav-item"><a class="nav-link" href="#quiz"><i class="fas fa-question-circle"></i> Quiz</a></li>
+                <!-- Real Stories Link -->
+                <li class="nav-item"><a class="nav-link" href="#stories"><i class="fas fa-book-open"></i> Real Stories</a></li>
+                <!-- Tips Link -->
+                <li class="nav-item"><a class="nav-link" href="#tips"><i class="fas fa-lightbulb"></i> Tips</a></li>
+                <!-- Resources Link -->
+                <li class="nav-item"><a class="nav-link" href="#resources"><i class="fas fa-link"></i> Resources</a></li>
+                <!-- Contact Link -->
+                <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Home Section -->
+<header id="home" class="vh-100 text-center d-flex align-items-center animated-bg" style="color: #040404;">
+    <div class="container">
+        <h1 class="display-4"><i class="fas fa-heartbeat"></i> Prioritize Your Mental Health</h1>
+        <p class="lead">Your well-being matters. Let's take a step towards self-care.</p>
+        <a href="#checkin" class="btn btn-primary btn-lg">Take a tip!</a> <!-- This links to the check-in section -->
+    </div>
+</header>
+<!-- Mental Health Check-In Section -->
+<section id="checkin" class="py-5 section-fade-in animated-bg">
+    <div class="container">
+        <h2 class="text-center"><i class="fas fa-heartbeat"></i> Mental Health Check-In</h2>
+
+        <div class="row gy-4">
+            <!-- Mood Selection -->
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-lg checkin-card">
+                    <div class="card-body">
+                        <h4 class="card-title"><i class="fas fa-smile"></i> How Are You Feeling Today?</h4>
+                        <div class="mood-options">
+                            <button class="btn mood-btn mood-happy" data-mood="Happy" onclick="selectMood('Happy')">
+                                😊 Happy
+                            </button>
+                            <button class="btn mood-btn mood-calm" data-mood="Calm" onclick="selectMood('Calm')">
+                                😌 Calm
+                            </button>
+                            <button class="btn mood-btn mood-sad" data-mood="Sad" onclick="selectMood('Sad')">
+                                😔 Sad
+                            </button>
+                            <button class="btn mood-btn mood-anxious" data-mood="Anxious" onclick="selectMood('Anxious')">
+                                😰 Anxious
+                            </button>
+                            <button class="btn mood-btn mood-stressed" data-mood="Stressed" onclick="selectMood('Stressed')">
+                                😫 Stressed
+                            </button>
+                        </div>
+                        <p class="mt-3 selected-mood">Selected Mood: <span id="mood-display">None</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips and Suggestions -->
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-lg checkin-card">
+                    <div class="card-body">
+                        <h4 class="card-title"><i class="fas fa-lightbulb"></i> Tips Based on Your Mood</h4>
+                        <div id="mood-tips" class="tips-content">
+                            <p>Select a mood to see tips!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Quiz Section -->
+<section id="quiz" class="py-5 bg-light section-fade-in animated-bg">
+    <div class="container">
+        <h2 class="text-center mb-4 quiz-heading"><i class="fas fa-question-circle"></i> Mental Health Quiz</h2>
+        <form id="quiz-form">
+            <div id="question-container"></div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        <div id="result-container" style="display: none; margin-top: 20px;">
+            <h3>Your Result</h3>
+            <p id="quiz-result"></p>
+            <div id="result-icon" class="text-center"></div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Real Stories Section -->
+<section id="stories" class="py-5 bg-light section-fade-in animated-bg">
+    <div class="container">
+        <h2 class="text-center mb-4 story-heading"><i class="fas fa-users"></i> Real Life Stories</h2>
+        <div class="row gy-4">
+
+            <!-- Story 1 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 story-card">
+                    <img src="https://images.unsplash.com/photo-1546961329-78bef0414d7c?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHdvbWFuJTIwZmFjZXxlbnwwfHwwfHx8MA%3D%3D" 
+                         class="card-img-top" 
+                         alt="Portrait of Sarah Thompson, a woman with a calm expression">
+                    <div class="card-body">
+                        <h5 class="card-title">Sarah Thompson</h5>
+                        <p class="text-muted">Age: 28</p>
+                        <p class="card-text">
+                            After battling anxiety for years, Sarah found peace through therapy and yoga. 
+                            She now advocates for mental health awareness.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story 2 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 story-card">
+                    <img src="https://images.unsplash.com/photo-1500048993953-d23a436266cf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D" 
+                         class="card-img-top" 
+                         alt="James Carter, a man smiling confidently">
+                    <div class="card-body">
+                        <h5 class="card-title">James Carter</h5>
+                        <p class="text-muted">Age: 35</p>
+                        <p class="card-text">
+                            James struggled with depression but turned his life around through 
+                            support groups and creative writing. He now runs a mental health blog.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story 3 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 story-card">
+                    <img src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D" 
+                         class="card-img-top" 
+                         alt="Emma Williams, a young woman with a confident smile">
+                    <div class="card-body">
+                        <h5 class="card-title">Emma Williams</h5>
+                        <p class="text-muted">Age: 24</p>
+                        <p class="card-text">
+                            Emma overcame social anxiety with the help of cognitive behavioral therapy. 
+                            She now volunteers at a local mental health center.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Tips Section -->
+<section id="tips" class="py-5 section-fade-in animated-bg">
+    <div class="container">
+        <h2 class="text-center"><i class="fas fa-lightbulb"></i> Mental Health Tips</h2>
+        <div class="row gy-4">
+
+            <!-- 🌿 Tip 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG1lZGl0YXRpb258ZW58MHx8MHx8fDA%3D" 
+                         class="card-img-top" alt="Mindfulness">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-spa"></i> Practice Mindfulness</h5>
+                        <p class="card-text">
+                            Mindfulness techniques, like meditation and deep breathing, can reduce stress and improve emotional regulation.
+                        </p>
+                        <p><strong>Benefits:</strong> Enhances focus, reduces anxiety, and boosts overall well-being.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🏃 Tip 2 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://plus.unsplash.com/premium_photo-1679938885972-180ed418f466?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGh5c2ljYWwlMjBleGVyY2lzZXxlbnwwfHwwfHx8MA%3D%3D" 
+                         class="card-img-top" alt="Stay Active">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-running"></i> Stay Active</h5>
+                        <p class="card-text">
+                            Engaging in regular physical activities, like walking or yoga, helps reduce symptoms of depression and anxiety.
+                        </p>
+                        <p><strong>Benefits:</strong> Boosts mood, improves sleep, and reduces stress hormones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ❤️ Tip 3 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dGFsa2luZ3xlbnwwfHwwfHx8MA%3D%3D" 
+                         class="card-img-top" alt="Talk to Someone">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-comments"></i> Talk to Someone</h5>
+                        <p class="card-text">
+                            Sharing your feelings with a trusted friend, family member, or therapist can help reduce emotional burdens.
+                        </p>
+                        <p><strong>Benefits:</strong> Provides emotional support, reduces feelings of isolation, and encourages healing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🛌 Tip 4 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://media.istockphoto.com/id/1369066585/photo/asian-woman-sleeps-well.webp?a=1&b=1&s=612x612&w=0&k=20&c=hw9cdg4J44xCLck-njDMfzS_ERW0TRu2oPq5_nIPpoA=" 
+                         class="card-img-top" alt="Get Enough Sleep">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-bed"></i> Get Enough Sleep</h5>
+                        <p class="card-text">
+                            Prioritize sleep to recharge your mind and body. Aim for 7-8 hours of quality sleep each night.
+                        </p>
+                        <p><strong>Benefits:</strong> Improves focus, enhances mood, and supports overall health.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🍎 Tip 5 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFsYW5jZWQlMjBkaWV0fGVufDB8fDB8fHww" 
+                         class="card-img-top" alt="Healthy Diet">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-apple-alt"></i> Eat a Balanced Diet</h5>
+                        <p class="card-text">
+                            A nutritious diet with fruits, vegetables, and whole grains supports mental clarity and reduces mood swings.
+                        </p>
+                        <p><strong>Benefits:</strong> Boosts brain health, regulates mood, and enhances energy levels.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🌞 Tip 6 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://media.istockphoto.com/id/1169634864/photo/peaceful-woman-looking-through-her-bedroom-window-in-the-morning.webp?a=1&b=1&s=612x612&w=0&k=20&c=XmOr-qZccWeljHiRcVdI7dwBU5QfH4-bSdaKXyro1s8=" 
+                         class="card-img-top" alt="Get Sunlight">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-sun"></i> Get Sunlight Exposure</h5>
+                        <p class="card-text">
+                            Spending time outdoors increases vitamin D levels and boosts your mood.
+                        </p>
+                        <p><strong>Benefits:</strong> Reduces stress, improves sleep, and boosts serotonin levels.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Resources Section -->
+<section id="resources" class="py-5 section-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Helpful Resources</h2>
+        <div class="row g-4">
+
+            <!-- Resource Card 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card resource-card shadow-lg h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-book-open fa-3x mb-3 text-primary"></i>
+                        <h5 class="card-title">Self-Help Articles</h5>
+                        <p class="card-text">Explore expert-written articles on stress management, mindfulness, and mental health tips.</p>
+                        <a href="https://www.verywellmind.com" target="_blank" class="btn btn-outline-primary">Visit Site</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource Card 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card resource-card shadow-lg h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-heartbeat fa-3x mb-3 text-danger"></i>
+                        <h5 class="card-title">Crisis Helplines</h5>
+                        <p class="card-text">Contact mental health support organizations for immediate assistance and professional help.</p>
+                        <a href="https://www.samhsa.gov/find-help/national-helpline" target="_blank" class="btn btn-outline-danger">Get Help</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource Card 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card resource-card shadow-lg h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-laptop-medical fa-3x mb-3 text-success"></i>
+                        <h5 class="card-title">Online Therapy</h5>
+                        <p class="card-text">Connect with licensed therapists and counselors online from the comfort of your home.</p>
+                        <a href="https://www.betterhelp.com" target="_blank" class="btn btn-outline-success">Start Therapy</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource Card 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card resource-card shadow-lg h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-music fa-3x mb-3 text-warning"></i>
+                        <h5 class="card-title">Soothing Music</h5>
+                        <p class="card-text">Listen to calming music and nature sounds to reduce stress and anxiety.</p>
+                        <a href="https://calm.com/music" target="_blank" class="btn btn-outline-warning">Listen Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource Card 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card resource-card shadow-lg h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-brain fa-3x mb-3 text-info"></i>
+                        <h5 class="card-title">Mindfulness Apps</h5>
+                        <p class="card-text">Discover meditation and mindfulness apps to enhance your mental well-being.</p>
+                        <a href="https://www.headspace.com" target="_blank" class="btn btn-outline-info">Try Headspace</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource Card 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card resource-card shadow-lg h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-dumbbell fa-3x mb-3 text-secondary"></i>
+                        <h5 class="card-title">Physical Health Tips</h5>
+                        <p class="card-text">Learn how regular physical activity and proper nutrition support mental wellness.</p>
+                        <a href="https://www.mind.org.uk" target="_blank" class="btn btn-outline-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-5 section-fade-in animated-bg" style="background: linear-gradient(135deg, #fef6e4, #e6f7ff);">
+    <div class="container">
+        <h2 class="text-center" style="color: #0a0a0b;"><i class="fas fa-envelope"></i> Contact Us</h2>
+        <form>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
