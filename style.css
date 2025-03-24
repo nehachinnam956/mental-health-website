@@ -1,6 +1,6 @@
 /* 🌿 General Styles */
 #home {
-    background: linear-gradient(to bottom, #e0f7fa, #ffffff); /* Calming gradient */
+    background: linear-gradient(to bottom, #8bc4cc, #d1b5b5); /* Calming gradient */
     color: #ffffff; /* Text color to contrast with background */
     padding: 50px 0;
     height: 100vh; /* Full height */
@@ -13,16 +13,6 @@
 
 #home .container {
     text-align: center;
-}
-#home {
-    background: url('https://i.pinimg.com/736x/93/e1/7d/93e17df5abb3c5de7f89d8edd026bc5c.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #ffffff; /* Ensuring the text remains readable on the image */
-    padding: 50px 0;
-    height: 100vh; /* Full height of the viewport */
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 * {
