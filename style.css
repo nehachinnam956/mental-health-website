@@ -97,6 +97,198 @@ header p {
     transform: translateY(-5px);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
+/* Styling for quiz section only */
+/* Quiz container with soothing gradient background */
+section.quiz-container {
+    background: #ffffff;
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.2s ease-in-out;
+    transition: box-shadow 0.3s;
+    background: linear-gradient(135deg, #f0f9ff, #cfe9f3);
+}
+
+section.quiz-container:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Quiz heading with Font Awesome icon */
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #0a0a0b;  /* Heading color */
+    margin-bottom: 25px;
+    font-weight: 700; 
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+}
+
+/* Adding Font Awesome icon before the heading */
+.title::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f59c";   /* Fas fa-brain icon */
+    font-weight: 900;
+    font-size: 32px;
+    margin-right: 12px;
+    color: #0a0a0b; /* Icon color */
+}
+
+/* Styling questions and labels */
+.question {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #34495e;  /* Calm dark blue for readability */
+}
+
+label {
+    display: block;
+    margin: 12px 0;
+    font-size: 16px;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* Add icons to labels */
+label::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f111";   /* Circle icon */
+    font-weight: 400;
+    margin-right: 10px;
+    color: #4a90e2;
+    transition: color 0.3s;
+}
+
+label:hover::before {
+    color: #357abd;  /* Darker blue on hover */
+}
+
+/* Radio button styling */
+input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #4a90e2; /* Custom radio button color */
+}
+
+/* Submit button with Font Awesome icon */
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: #4a90e2;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+/* Add send icon to the submit button */
+.submit-btn::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f1d8"; /* Paper plane icon */
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.submit-btn:hover {
+    background: #357abd;
+    transform: translateY(-2px);
+}
+
+/* Accessibility: Focus states */
+.submit-btn:focus {
+    outline: 3px solid #4a90e2;
+    outline-offset: 3px;
+}
+
+label:focus {
+    outline: 2px dashed #4a90e2;
+}
+
+/* Result section with aesthetic gradient and soft shadow */
+.result {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;   /* White text */
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #a8e6cf, #dcedc1);  /* Soft green gradient */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+/* Different colors for result variations with icons */
+.result.success::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f058";  /* Check circle icon */
+    font-weight: 900;
+    margin-right: 10px;
+    color: #2e7d32;  /* Green */
+}
+
+.result.warning::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f071";  /* Exclamation triangle icon */
+    font-weight: 900;
+    margin-right: 10px;
+    color: #f39c12;   /* Yellow */
+}
+
+.result.error::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f057";  /* Times circle icon */
+    font-weight: 900;
+    margin-right: 10px;
+    color: #e53935;   /* Red */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    section.quiz-container {
+        width: 95%;
+        padding: 30px;
+    }
+    
+    .title {
+        font-size: 22px;
+    }
+    
+    label {
+        font-size: 14px;
+    }
+    
+    .submit-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+
 /* Style for Real Stories Section */
 #stories {
     background: linear-gradient(135deg, #f5f5f5, #e0f7fa);
@@ -257,6 +449,7 @@ header p {
     background: linear-gradient(to bottom, #fef6e4, #e6f7ff);
     padding: 100px 20px;
     text-align: center;
+    color: #0a0a0b;
 }
 
 .resource-container {
@@ -269,7 +462,7 @@ header p {
 }
 
 .resource-card {
-    background: #fff;
+    background: #e8bebe;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.4s, box-shadow 0.4s;
@@ -395,10 +588,9 @@ header p {
         width: 100%;
     }
 }
-/* 🕊️ Contact Us Section */
 /* Contact Section */
 #contact {
-    background: linear-gradient(to bottom, #fef6e4, #e6f7ff)
+    background: linear-gradient(to bottom, #fef6e4, #e6f7ff);
     padding-top: 50px;
     padding-bottom: 50px;
 }
