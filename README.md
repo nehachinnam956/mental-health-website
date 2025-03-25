@@ -32,7 +32,7 @@ Clone the Repository:
 
 bash
 Copy code
-git clone https://github.com/yourusername/mindcare.git
+git clone https://github.com/nehachinnam956/mindcare.git
 Open the Project:
 
 Open the index.html file in any modern web browser to start exploring the features.
