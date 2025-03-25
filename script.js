@@ -15,21 +15,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to handle mood selection
     function selectMood(mood) {
-        // Remove the 'active' class from all buttons
+        // Remove 'active' class from all buttons
         moodButtons.forEach(button => {
             button.classList.remove("active");
         });
 
-        // Highlight the selected mood button
+        // Highlight the selected button
         const selectedButton = [...moodButtons].find(btn => btn.dataset.mood === mood);
         if (selectedButton) {
             selectedButton.classList.add("active");
         }
 
-        // Display the selected mood
+        // Display mood and tips
         moodDisplay.textContent = mood;
 
-        // Display tips based on the selected mood
         if (moodTips[mood]) {
             moodTipsContainer.innerHTML = `
                 <div class="alert alert-info">
@@ -55,127 +54,47 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Quiz Section logic
-    const questions = [
-        {
-            question: "How often do you feel anxious or stressed?",
-            options: ["Never", "Sometimes", "Frequently", "Always"],
-            answer: null
-        },
-        {
-            question: "Do you often feel down or depressed?",
-            options: ["Never", "Sometimes", "Frequently", "Always"],
-            answer: null
-        },
-        {
-            question: "How well are you sleeping?",
-            options: ["Very well", "Adequately", "Poorly", "Very poorly"],
-            answer: null
-        },
-        {
-            question: "How often do you feel isolated or alone?",
-            options: ["Never", "Sometimes", "Frequently", "Always"],
-            answer: null
-        },
-        {
-            question: "Do you find it difficult to concentrate or focus?",
-            options: ["Never", "Sometimes", "Frequently", "Always"],
-            answer: null
-        }
-    ];
-    
-    const quizForm = document.getElementById("quiz-form");
-    const questionContainer = document.getElementById("question-container");
-    const resultContainer = document.getElementById("result-container");
-    const quizResult = document.getElementById("quiz-result");
-    const resultIcon = document.getElementById("result-icon");
-    
-    // Display the questions and options
-    function displayQuestions() {
-        questionContainer.innerHTML = questions.map((q, index) => {
-            return `
-                <div class="question mb-4">
-                    <h5>${q.question}</h5>
-                    ${q.options.map((option, i) => {
-                        return `
-                            <label class="d-block">
-                                <input type="radio" name="question${index}" value="${option}" onclick="saveAnswer(${index}, '${option}')"> 
-                                ${option}
-                            </label>
-                        `;
-                    }).join('')}
-                </div>
-            `;
-        }).join('');
-    }
-    
-    // Save the selected answer to the corresponding question
-    function saveAnswer(questionIndex, option) {
-        questions[questionIndex].answer = option;
-    }
-    
-    // Evaluate the answers and provide the result
-    function evaluateAnswers() {
-        let concerningAnswers = 0;
-        let suggestions = [];
-    
-        // Iterate through the answers and count how many are concerning
-        questions.forEach(q => {
-            // Answers "Frequently" or "Always" are concerning (indicating mental health issues)
-            if (q.answer === "Frequently" || q.answer === "Always") {
-                concerningAnswers++;
-                if (q.question.includes("anxious") || q.question.includes("stressed")) {
-                    suggestions.push("Consider practicing relaxation techniques, and reach out to people you trust to talk about your feelings.");
-                }
-                if (q.question.includes("down") || q.question.includes("depressed")) {
-                    suggestions.push("It's important to talk to a healthcare provider or a mental health professional to work through these feelings.");
-                }
-                if (q.question.includes("sleeping")) {
-                    suggestions.push("If you're struggling with sleep, try maintaining a consistent sleep schedule or consult a healthcare provider for advice.");
-                }
-                if (q.question.includes("isolated") || q.question.includes("alone")) {
-                    suggestions.push("Consider reaching out to family, friends, or a counselor. Building connections can help you feel more supported.");
-                }
-                if (q.question.includes("concentrate") || q.question.includes("focus")) {
-                    suggestions.push("Practicing mindfulness, meditation, or cognitive techniques might help improve focus and concentration.");
-                }
-            }
-        });
-    
-        let resultText = "";
-        let iconHTML = "";
-    
-        // Result text and suggestions based on concerning answers
-        if (concerningAnswers === 0) {
-            resultText = "Your answers suggest that you're managing your mental health well. Keep up with your positive habits and practices!";
-            iconHTML = '<i class="fas fa-smile-beam text-success" style="font-size: 3em;"></i>';
-        } else if (concerningAnswers <= 2) {
-            resultText = "You may be experiencing some mental health challenges. Here are a few suggestions to help improve your well-being: ";
-            iconHTML = '<i class="fas fa-meh-rolling-eyes text-warning" style="font-size: 3em;"></i>';
-        } else {
-            resultText = "It seems you might be facing significant mental health struggles. We recommend consulting a healthcare professional for guidance and support. Here are some suggestions: ";
-            iconHTML = '<i class="fas fa-sad-tear text-danger" style="font-size: 3em;"></i>';
-        }
-    
-        // Display suggestions if any
-        if (suggestions.length > 0) {
-            resultText += "<ul>" + suggestions.map(suggestion => `<li>${suggestion}</li>`).join('') + "</ul>";
-        }
-    
-        // Display the result and icon
-        quizResult.innerHTML = resultText;
-        resultIcon.innerHTML = iconHTML;
-        resultContainer.style.display = "block";
-    }
-    
-    // Handle form submission
-    quizForm.addEventListener("submit", (e) => {
+    // Quiz Section Logic
+    const quizForm = document.getElementById('quiz-form');
+    const resultDiv = document.getElementById('result');
+
+    quizForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        evaluateAnswers();
+
+        const form = new FormData(quizForm);
+        let score = 0;
+
+        // Scoring logic
+        for (let entry of form.entries()) {
+            const value = entry[1].trim();
+
+            if (['Rarely', 'No', 'Good', 'Daily', 'Always'].includes(value)) {
+                score += 2;
+            } else if (['Sometimes', 'Occasionally', 'Average', 'Weekly'].includes(value)) {
+                score += 1;
+            } else {
+                score += 0;
+            }
+        }
+
+        let resultText = '';
+
+        // Display result with color coding
+        if (score >= 8) {
+            resultText = "🌿 You're doing great! Keep nurturing your mental health.";
+            resultDiv.style.color = '#27ae60'; // Green for good score
+        } else if (score >= 5) {
+            resultText = "💡 You might benefit from adding more relaxation or self-care activities.";
+            resultDiv.style.color = '#f39c12'; // Yellow-orange for moderate score
+        } else {
+            resultText = "🧠 It may be helpful to reach out to a mental health professional or seek support.";
+            resultDiv.style.color = '#e74c3c'; // Red for low score
+        }
+
+        // Display result
+        resultDiv.innerHTML = `<p>${resultText}</p>`;
     });
-    
-    displayQuestions();
-    
+
 });
 
 
