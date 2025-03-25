@@ -1,3 +1,86 @@
+.navbar {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.navbar-brand .brand-text {
+    background: linear-gradient(to right, #ffffff 0%, #f0f0f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-link {
+    position: relative;
+    color: rgba(255,255,255,0.8);
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .nav-link {
+        text-align: center;
+        padding: 10px 0;
+    }
+    
+    .navbar-nav {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        padding: 15px;
+        border-radius: 10px;
+    }
+}
+/* Navbar styling */
+.custom-navbar {
+    background-color: #343a40;  /* Dark background color */
+    padding: 15px;
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #17a2b8;
+}
 /* 🌿 General Styles */
 #home {
     background: linear-gradient(to bottom, #8bc4cc, #d1b5b5); /* Calming gradient */
@@ -97,6 +180,102 @@ header p {
     transform: translateY(-5px);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
+/* 🌿 Flashcard Section Styling */
+.interactive-section {
+    padding: 50px 20px;
+    background: #f0f8ff;
+    text-align: center;
+}
+
+/* Flashcard Container */
+.flashcard-container {
+    display: flex;
+    justify-content: center;    
+    align-items: center;        
+    flex-wrap: wrap;            
+    gap: 25px;                   
+    min-height: 100vh;          
+    padding: 20px;               
+    box-sizing: border-box;
+}
+
+/* Individual Flashcard */
+.flashcard {
+    width: 250px;
+    height: 180px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.flashcard:hover {
+    transform: scale(1.05);
+}
+
+/* Flashcard Inner Wrapper */
+.flashcard-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Flip Effect */
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front and Back Sides */
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    background: #ffffff;
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+/* Flashcard Front */
+.flashcard-front {
+    background: #90caf9;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Flashcard Back */
+.flashcard-back {
+    transform: rotateY(180deg);
+    background: #b4c9b4;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .flashcard {
+        width: 200px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flashcard {
+        width: 150px;
+        height: 120px;
+    }
+}
+
+
 /* Styling for quiz section only */
 /* Quiz container with soothing gradient background */
 section.quiz-container {
@@ -344,104 +523,127 @@ label:focus {
 }
 
 /* Mental Health Check-In Section */
-#checkin {
-    background: linear-gradient(135deg, #f5f5f5, #e0f7fa);
-    padding: 80px 0;
-    color: #333;
-    transition: background 0.5s ease-in-out;
+/* --- Section Styling --- */
+/* Section Styling */
+/* 🖤 Heading and Icon in Black */
+.heading-black {
+    color: #000;  /* Pure black color */
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
 }
 
-/* Section Heading */
-#checkin h2 {
-    font-size: 2.5rem;
-    color: #0a0a0b;
-    margin-bottom: 50px;
-    font-weight: 700;
-    text-shadow: 1px 1px 2px #aaa;
+/* Icon Styling */
+.heading-black i {
+    color: #000;  /* Black color for the icon */
+    font-size: 40px;  /* Icon size */
+    transition: transform 0.3s ease;
 }
+
+/* Hover Effect (Optional) */
+.heading-black:hover i {
+    transform: scale(1.2);  /* Slight scale-up on hover */
+}
+
+.section-fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
 
 /* Card Styling */
-.checkin-card {
-    border: none;
-    border-radius: 12px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    background: #ffffff;
-    overflow: hidden;
+.mood-card {
+    background: linear-gradient(135deg, #f0f4f8, #e0f7fa); /* Light calming gradient */
+    border: 1px solid #b2dfdb; 
+    transition: transform 0.3s ease-in-out;
+}
+.mood-card:hover {
+    transform: translateY(-5px);
 }
 
-/* Card Hover Effect */
-.checkin-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+.tips-card {
+    background: linear-gradient(135deg, #f1f8e9, #e0f7fa); /* Soft pastel gradient */
+    border: 1px solid #c8e6c9; 
+    transition: transform 0.3s ease-in-out;
 }
-
-/* Card Title */
-.checkin-card .card-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #0a0a0b;
-    margin-bottom: 20px;
+.tips-card:hover {
+    transform: translateY(-5px);
 }
 
 /* Mood Buttons */
-.mood-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
 .mood-btn {
-    flex: 1;
-    min-width: 120px;
-    padding: 12px 20px;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #fff;
+    padding: 10px 18px;
+    font-size: 16px;
+    margin: 5px;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    color: #fff;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
-/* Mood Colors */
-.mood-happy { background: #28a745; }
-.mood-calm { background: #17a2b8; }
-.mood-sad { background: #6c757d; }
-.mood-anxious { background: #ffc107; }
-.mood-stressed { background: #dc3545; }
-
-.mood-btn:hover {
-    opacity: 0.9;
-    transform: scale(1.05);
+.mood-happy {
+    background: #ffcc80; /* Soft orange */
+}
+.mood-happy:hover {
+    background: #ffb74d;
+    transform: scale(1.1);
 }
 
-/* Selected Mood */
-.selected-mood {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #007bff;
+.mood-calm {
+    background: #81d4fa; /* Light blue */
+}
+.mood-calm:hover {
+    background: #4fc3f7;
+    transform: scale(1.1);
+}
+
+.mood-sad {
+    background: #b39ddb; /* Lavender */
+}
+.mood-sad:hover {
+    background: #9575cd;
+    transform: scale(1.1);
+}
+
+.mood-anxious {
+    background: #ffab91; /* Light coral */
+}
+.mood-anxious:hover {
+    background: #ff8a65;
+    transform: scale(1.1);
+}
+
+.mood-stressed {
+    background: #f48fb1; /* Soft pink */
+}
+.mood-stressed:hover {
+    background: #f06292;
+    transform: scale(1.1);
 }
 
 /* Mood Tips */
-#checkin .tips-content {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
+.tips-content {
     padding: 15px;
-    background: #f8f9fa;
-    border-left: 5px solid #007bff;
-    border-radius: 8px;
+    font-size: 18px;
+    color: #333;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .mood-btn {
-        min-width: 100%;
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    #checkin h2 {
-        font-size: 2rem;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
+
 
 
 /* 💡 Resource Section */
@@ -722,6 +924,93 @@ textarea.form-control {
     background-color: rgba(255, 255, 255, 0.9);
     margin-top: 20px;
 }
+/* 🌿 Affirmations Section with Calming Background */
+.affirmation-section {
+    text-align: center;
+    padding: 60px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* 🌸 Gradient Background */
+    background: linear-gradient(135deg, #fef6e4, #e6f7ff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+
+    /* Smooth Transition */
+    transition: background 0.5s ease;
+}
+
+/* 🎯 Background Gradient Animation */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 💬 Affirmation Card */
+.affirmation-card {
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    max-width: 550px;
+    padding: 40px 30px;
+    transition: transform 0.4s ease, box-shadow 0.4s;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s forwards;
+}
+
+/* 🎯 Card Animation */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🌟 Icon and Text Styling */
+.affirmation-icon {
+    font-size: 50px;
+    color: #6a8caf;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.affirmation-content p {
+    font-size: 24px;
+    color: #444;
+    line-height: 1.6;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* ✨ Button Styling */
+#generate-btn {
+    background: #6a8caf;
+    color: #fff;
+    border: none;
+    padding: 14px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 20px;
+}
+
+#generate-btn:hover {
+    background: #4f739c;
+    transform: scale(1.1);
+}
+
 
 /* 🌿 Mental Health Tips Section */
 /* Tips Section Styling */
@@ -812,8 +1101,6 @@ textarea.form-control {
         font-size: 2rem;
     }
 }
-
-
 
 
 
