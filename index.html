@@ -24,7 +24,7 @@
                 <!-- How are you right now Link -->
                 <li class="nav-item"><a class="nav-link" href="#checkin"><i class="fas fa-clipboard-list"></i> How are you right now?</a></li>
                 <!-- Quiz Link -->
-                <li class="nav-item"><a class="nav-link" href="#quiz"><i class="fas fa-question-circle"></i> Quiz</a></li>
+                <li class="nav-item"><a class="nav-link" href="#quiz-form"><i class="fas fa-question-circle"></i> Quiz</a></li>
                 <!-- Real Stories Link -->
                 <li class="nav-item"><a class="nav-link" href="#stories"><i class="fas fa-book-open"></i> Real Stories</a></li>
                 <!-- Tips Link -->
@@ -94,22 +94,47 @@
         </div>
     </div>
 </section>
-<!-- Quiz Section -->
-<section id="quiz" class="py-5 bg-light section-fade-in animated-bg">
-    <div class="container">
-        <h2 class="text-center mb-4 quiz-heading"><i class="fas fa-question-circle"></i> Mental Health Quiz</h2>
-        <form id="quiz-form">
-            <div id="question-container"></div>
-            <div class="text-center mt-4">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
-        <div id="result-container" style="display: none; margin-top: 20px;">
-            <h3>Your Result</h3>
-            <p id="quiz-result"></p>
-            <div id="result-icon" class="text-center"></div>
+<section class="quiz-container">
+    <h1 class="title">Mental Health Quiz</h1>
+    <form id="quiz-form">
+        <div class="question">
+            <p>1. How often do you feel overwhelmed by stress?</p>
+            <label><input type="radio" name="q1" value="Rarely"> Rarely</label>
+            <label><input type="radio" name="q1" value="Sometimes"> Sometimes</label>
+            <label><input type="radio" name="q1" value="Often"> Often</label>
         </div>
-    </div>
+        
+        <div class="question">
+            <p>2. Do you find it difficult to focus on daily tasks?</p>
+            <label><input type="radio" name="q2" value="No"> No</label>
+            <label><input type="radio" name="q2" value="Occasionally"> Occasionally</label>
+            <label><input type="radio" name="q2" value="Yes"> Yes</label>
+        </div>
+
+        <div class="question">
+            <p>3. How would you rate your sleep quality?</p>
+            <label><input type="radio" name="q3" value="Good"> Good</label>
+            <label><input type="radio" name="q3" value="Average"> Average</label>
+            <label><input type="radio" name="q3" value="Poor"> Poor</label>
+        </div>
+        
+        <div class="question">
+            <p>4. How often do you take breaks to relax or meditate?</p>
+            <label><input type="radio" name="q4" value="Daily"> Daily</label>
+            <label><input type="radio" name="q4" value="Weekly"> Weekly</label>
+            <label><input type="radio" name="q4" value="Rarely"> Rarely</label>
+        </div>
+        
+        <div class="question">
+            <p>5. Do you feel supported by friends or family when you're stressed?</p>
+            <label><input type="radio" name="q5" value="Always"> Always</label>
+            <label><input type="radio" name="q5" value="Sometimes"> Sometimes</label>
+            <label><input type="radio" name="q5" value="Rarely"> Rarely</label>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <div id="result" class="result"></div>
 </section>
 
 
@@ -276,7 +301,9 @@
 <!-- Resources Section -->
 <section id="resources" class="py-5 section-light">
     <div class="container">
-        <h2 class="text-center mb-5">Helpful Resources</h2>
+        <h2 class="text-center mb-5" style="color: #0a0a0b; font-weight: 600; font-size: 2.3rem;">
+            <i class="fas fa-hands-helping me-3" style="color: #0a0a0b;"></i>Helpful Resources
+        </h2>
         <div class="row g-4">
 
             <!-- Resource Card 1 -->
@@ -354,6 +381,7 @@
         </div>
     </div>
 </section>
+
 <!-- Contact Section -->
 <section id="contact" class="py-5 section-fade-in animated-bg" style="background: linear-gradient(135deg, #fef6e4, #e6f7ff);">
     <div class="container">
