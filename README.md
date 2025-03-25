@@ -49,7 +49,9 @@ mindcare/
 ├── style.css               # Custom CSS for styling
 |__script.js                #js for functioning 
 └── README.md               # Project README file
+
 Future Improvements
+
 User Authentication: Allow users to register and track their mental health progress over time.
 
 Personalized Recommendations: Offer tailored mental health tips and resources based on individual data.
