@@ -1,5 +1,5 @@
 # 🧠 **MindCare - Mental Health Awareness Web Application**
-
+Live demo: https://nehachinnam956.github.io/mental-health-website/
 **MindCare** is an engaging and interactive web application designed to raise awareness about mental health and provide support to individuals seeking to improve their mental well-being. This platform offers a **comprehensive set of features**, including mood tracking, mental health quizzes, real-life stories, expert tips, affirmations, flashcards, and a wide range of resources to help users better understand and manage their mental health. Whether you're looking for a mental health check-in, informative resources, or simply inspiration from others’ stories, **MindCare** provides a **holistic approach** to self-care.
 
 ---
